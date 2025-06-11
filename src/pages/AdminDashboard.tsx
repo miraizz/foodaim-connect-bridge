@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -147,7 +146,7 @@ const AdminDashboard = () => {
                     <p className="text-sm text-green-700">Sensors Online</p>
                   </div>
                   <div className="text-center p-4 bg-blue-50 rounded-lg">
-                    <div className="text-2xl font-bold text-blue-600">< 2s</div>
+                    <div className="text-2xl font-bold text-blue-600">&lt; 2s</div>
                     <p className="text-sm text-blue-700">Update Frequency</p>
                   </div>
                   <div className="text-center p-4 bg-purple-50 rounded-lg">
