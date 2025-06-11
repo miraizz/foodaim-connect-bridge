@@ -36,14 +36,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">FA</span>
+            <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">FA</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">FoodAim</span>
+            <span className="text-xl font-bold text-foreground">FoodAim</span>
           </Link>
         </div>
 
@@ -111,9 +111,9 @@ const Login = () => {
             </Tabs>
 
             <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Don't have an account?{" "}
-                <Link to="/register" className="text-blue-600 hover:underline">
+                <Link to="/register" className="text-primary hover:underline">
                   Register here
                 </Link>
               </p>

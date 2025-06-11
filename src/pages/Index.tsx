@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-logo-cream to-muted">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
       {/* Navigation */}
       <nav className="bg-card shadow-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +24,7 @@ const Index = () => {
                 <Button variant="outline">Login</Button>
               </Link>
               <Link to="/register">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Get Started</Button>
+                <Button className="bg-primary hover:bg-primary/80 text-primary-foreground">Get Started</Button>
               </Link>
             </div>
           </div>
@@ -47,7 +47,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/admin-dashboard">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-logo-green hover:from-primary/90 hover:to-logo-green/90 text-primary-foreground">
+                <Button size="lg" className="bg-primary hover:bg-primary/80 text-primary-foreground">
                   Admin Dashboard
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -75,7 +75,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow border-border">
+            <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-muted/30">
               <CardHeader>
                 <Shield className="h-8 w-8 text-primary mb-2" />
                 <CardTitle className="text-foreground">User Authentication</CardTitle>
@@ -85,9 +85,9 @@ const Index = () => {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow border-border">
+            <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-accent/20">
               <CardHeader>
-                <BarChart3 className="h-8 w-8 text-accent mb-2" />
+                <BarChart3 className="h-8 w-8 text-accent-foreground mb-2" />
                 <CardTitle className="text-foreground">Inventory Management</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Complete stock control with add, update, and remove functionalities for food items
@@ -95,7 +95,7 @@ const Index = () => {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow border-border">
+            <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-secondary/30">
               <CardHeader>
                 <Smartphone className="h-8 w-8 text-primary mb-2" />
                 <CardTitle className="text-foreground">IoT Integration</CardTitle>
@@ -105,9 +105,9 @@ const Index = () => {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow border-border">
+            <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-accent/20">
               <CardHeader>
-                <Bell className="h-8 w-8 text-accent mb-2" />
+                <Bell className="h-8 w-8 text-accent-foreground mb-2" />
                 <CardTitle className="text-foreground">Dashboard & Alerts</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Live dashboard with visual insights and automated low-stock alerts for administrators
@@ -115,7 +115,7 @@ const Index = () => {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow border-border">
+            <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-muted/30">
               <CardHeader>
                 <Users className="h-8 w-8 text-primary mb-2" />
                 <CardTitle className="text-foreground">Beneficiary Management</CardTitle>
@@ -125,9 +125,9 @@ const Index = () => {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow border-border">
+            <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-secondary/30">
               <CardHeader>
-                <CheckCircle className="h-8 w-8 text-accent mb-2" />
+                <CheckCircle className="h-8 w-8 text-primary mb-2" />
                 <CardTitle className="text-foreground">Application Tracking</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Real-time status monitoring for beneficiary applications and approval processes
@@ -166,7 +166,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-primary/20 backdrop-blur-sm text-foreground py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
             <img 
@@ -176,7 +176,7 @@ const Index = () => {
             />
             <span className="text-xl font-bold">FoodAim</span>
           </div>
-          <p className="text-primary-foreground/80">
+          <p className="text-muted-foreground">
             Final Year Project - Smart Food Bank Management System with IoT Integration
           </p>
         </div>
