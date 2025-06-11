@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted/50">
       {/* Navigation */}
-      <nav className="bg-card shadow-sm border-b border-border">
+      <nav className="bg-primary shadow-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
@@ -17,14 +17,14 @@ const Index = () => {
                 alt="FoodAim Logo" 
                 className="w-10 h-10"
               />
-              <span className="text-xl font-bold text-foreground">FoodAim</span>
+              <span className="text-xl font-bold text-secondary">FoodAim</span>
             </div>
             <div className="flex items-center space-x-4">
               <Link to="/login">
-                <Button variant="outline">Login</Button>
+                <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">Login</Button>
               </Link>
               <Link to="/register">
-                <Button className="bg-primary hover:bg-primary/80 text-primary-foreground">Get Started</Button>
+                <Button className="bg-secondary hover:bg-secondary/80 text-secondary-foreground">Get Started</Button>
               </Link>
             </div>
           </div>
@@ -35,9 +35,9 @@ const Index = () => {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Smart Food Bank
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="text-primary">Smart Food Bank</span>
+              <span className="block text-primary">
                 Management System
               </span>
             </h1>
@@ -78,7 +78,7 @@ const Index = () => {
             <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-muted/30">
               <CardHeader>
                 <Shield className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-foreground">User Authentication</CardTitle>
+                <CardTitle className="text-secondary">User Authentication</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Secure login system for administrators and registered beneficiaries with profile management
                 </CardDescription>
@@ -87,8 +87,8 @@ const Index = () => {
 
             <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-accent/20">
               <CardHeader>
-                <BarChart3 className="h-8 w-8 text-accent-foreground mb-2" />
-                <CardTitle className="text-foreground">Inventory Management</CardTitle>
+                <BarChart3 className="h-8 w-8 text-accent mb-2" />
+                <CardTitle className="text-secondary">Inventory Management</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Complete stock control with add, update, and remove functionalities for food items
                 </CardDescription>
@@ -98,7 +98,7 @@ const Index = () => {
             <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-secondary/30">
               <CardHeader>
                 <Smartphone className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-foreground">IoT Integration</CardTitle>
+                <CardTitle className="text-secondary">IoT Integration</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Arduino Uno and ultrasonic sensor for real-time stock level detection and monitoring
                 </CardDescription>
@@ -107,8 +107,8 @@ const Index = () => {
 
             <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-accent/20">
               <CardHeader>
-                <Bell className="h-8 w-8 text-accent-foreground mb-2" />
-                <CardTitle className="text-foreground">Dashboard & Alerts</CardTitle>
+                <Bell className="h-8 w-8 text-accent mb-2" />
+                <CardTitle className="text-secondary">Dashboard & Alerts</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Live dashboard with visual insights and automated low-stock alerts for administrators
                 </CardDescription>
@@ -118,7 +118,7 @@ const Index = () => {
             <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-muted/30">
               <CardHeader>
                 <Users className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-foreground">Beneficiary Management</CardTitle>
+                <CardTitle className="text-secondary">Beneficiary Management</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Application processing, eligibility verification, and B40 income status tracking
                 </CardDescription>
@@ -128,7 +128,7 @@ const Index = () => {
             <Card className="hover:shadow-lg transition-shadow border-border bg-gradient-to-br from-card to-secondary/30">
               <CardHeader>
                 <CheckCircle className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-foreground">Application Tracking</CardTitle>
+                <CardTitle className="text-secondary">Application Tracking</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Real-time status monitoring for beneficiary applications and approval processes
                 </CardDescription>
@@ -139,7 +139,7 @@ const Index = () => {
       </section>
 
       {/* Project Abstract */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <Card className="border-border">
             <CardHeader>
@@ -174,7 +174,7 @@ const Index = () => {
               alt="FoodAim Logo" 
               className="w-8 h-8"
             />
-            <span className="text-xl font-bold">FoodAim</span>
+            <span className="text-xl font-bold text-secondary">FoodAim</span>
           </div>
           <p className="text-muted-foreground">
             Final Year Project - Smart Food Bank Management System with IoT Integration
