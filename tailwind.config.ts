@@ -64,8 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				'logo-green': 'hsl(var(--logo-green))',
-				'logo-orange': 'hsl(var(--logo-orange))',
-				'logo-cream': 'hsl(var(--logo-cream))'
+				'logo-yellow': 'hsl(var(--logo-yellow))',
+				'logo-blue': 'hsl(var(--logo-blue))',
+				'logo-gray': 'hsl(var(--logo-gray))',
+				'logo-brown': 'hsl(var(--logo-brown))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -16,40 +16,42 @@
     --popover: 255 255 255;
     --popover-foreground: 71 85 105;
 
-    --primary: 165 180 252;
+    --primary: 248 219 65;
     --primary-foreground: 30 41 59;
 
-    --secondary: 219 234 254;
-    --secondary-foreground: 71 85 105;
+    --secondary: 42 104 44;
+    --secondary-foreground: 255 255 255;
 
     --muted: 248 250 252;
-    --muted-foreground: 148 163 184;
+    --muted-foreground: 141 130 69;
 
-    --accent: 254 215 215;
-    --accent-foreground: 71 85 105;
+    --accent: 50 93 105;
+    --accent-foreground: 255 255 255;
 
     --destructive: 248 113 113;
     --destructive-foreground: 255 255 255;
 
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 165 180 252;
+    --ring: 248 219 65;
 
     --radius: 0.5rem;
 
     --sidebar-background: 255 255 255;
     --sidebar-foreground: 71 85 105;
-    --sidebar-primary: 165 180 252;
+    --sidebar-primary: 248 219 65;
     --sidebar-primary-foreground: 30 41 59;
     --sidebar-accent: 248 250 252;
     --sidebar-accent-foreground: 71 85 105;
     --sidebar-border: 226 232 240;
-    --sidebar-ring: 165 180 252;
+    --sidebar-ring: 248 219 65;
 
-    /* Custom logo colors - pastel versions */
-    --logo-green: 187 247 208;
-    --logo-orange: 254 215 215;
-    --logo-cream: 255 255 255;
+    /* Custom logo colors from the new theme */
+    --logo-green: 42 104 44;
+    --logo-yellow: 248 219 65;
+    --logo-blue: 50 93 105;
+    --logo-gray: 156 163 163;
+    --logo-brown: 141 130 69;
   }
 
   .dark {
@@ -62,33 +64,33 @@
     --popover: 30 41 59;
     --popover-foreground: 226 232 240;
 
-    --primary: 129 140 248;
+    --primary: 248 219 65;
     --primary-foreground: 15 23 42;
 
-    --secondary: 51 65 85;
+    --secondary: 42 104 44;
     --secondary-foreground: 226 232 240;
 
     --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
+    --muted-foreground: 141 130 69;
 
-    --accent: 190 242 100;
-    --accent-foreground: 15 23 42;
+    --accent: 50 93 105;
+    --accent-foreground: 226 232 240;
 
     --destructive: 239 68 68;
     --destructive-foreground: 226 232 240;
 
     --border: 51 65 85;
     --input: 51 65 85;
-    --ring: 129 140 248;
+    --ring: 248 219 65;
 
     --sidebar-background: 30 41 59;
     --sidebar-foreground: 226 232 240;
-    --sidebar-primary: 129 140 248;
+    --sidebar-primary: 248 219 65;
     --sidebar-primary-foreground: 15 23 42;
     --sidebar-accent: 51 65 85;
     --sidebar-accent-foreground: 226 232 240;
     --sidebar-border: 51 65 85;
-    --sidebar-ring: 129 140 248;
+    --sidebar-ring: 248 219 65;
   }
 }
 
