@@ -6,23 +6,23 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <div className="min-h-screen bg-green-lightest">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
+      <nav className="bg-white shadow-sm border-b border-green-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-green-darkest to-green-olive rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">FA</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">FoodAim</span>
+              <span className="text-xl font-bold text-green-darkest">FoodAim</span>
             </div>
             <div className="flex items-center space-x-4">
               <Link to="/login">
-                <Button variant="outline">Login</Button>
+                <Button variant="outline" className="border-green-medium text-green-darkest hover:bg-green-light">Login</Button>
               </Link>
               <Link to="/register">
-                <Button>Get Started</Button>
+                <Button className="bg-green-darkest hover:bg-green-dark">Get Started</Button>
               </Link>
             </div>
           </div>
@@ -33,25 +33,25 @@ const Index = () => {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-green-darkest mb-6">
               Smart Food Bank
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-darkest to-green-olive">
                 Management System
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-green-dark mb-8 max-w-3xl mx-auto">
               Revolutionizing food bank operations with IoT integration, real-time inventory tracking, 
               and automated stock management. Reducing food insecurity through smart technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/admin-dashboard">
-                <Button size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700">
+                <Button size="lg" className="bg-gradient-to-r from-green-darkest to-green-dark hover:from-green-dark hover:to-green-olive">
                   Admin Dashboard
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/beneficiary-portal">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="border-green-medium text-green-darkest hover:bg-green-light">
                   Beneficiary Portal
                 </Button>
               </Link>
@@ -64,70 +64,70 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-green-darkest mb-4">
               Key Features & Modules
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-green-dark">
               Comprehensive food bank management with IoT integration and real-time monitoring
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Shield className="h-8 w-8 text-blue-500 mb-2" />
-                <CardTitle>User Authentication</CardTitle>
-                <CardDescription>
+                <Shield className="h-8 w-8 text-green-darkest mb-2" />
+                <CardTitle className="text-green-darkest">User Authentication</CardTitle>
+                <CardDescription className="text-green-dark">
                   Secure login system for administrators and registered beneficiaries with profile management
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <BarChart3 className="h-8 w-8 text-green-500 mb-2" />
-                <CardTitle>Inventory Management</CardTitle>
-                <CardDescription>
+                <BarChart3 className="h-8 w-8 text-green-olive mb-2" />
+                <CardTitle className="text-green-darkest">Inventory Management</CardTitle>
+                <CardDescription className="text-green-dark">
                   Complete stock control with add, update, and remove functionalities for food items
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Smartphone className="h-8 w-8 text-purple-500 mb-2" />
-                <CardTitle>IoT Integration</CardTitle>
-                <CardDescription>
+                <Smartphone className="h-8 w-8 text-green-medium mb-2" />
+                <CardTitle className="text-green-darkest">IoT Integration</CardTitle>
+                <CardDescription className="text-green-dark">
                   Arduino Uno and ultrasonic sensor for real-time stock level detection and monitoring
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Bell className="h-8 w-8 text-orange-500 mb-2" />
-                <CardTitle>Dashboard & Alerts</CardTitle>
-                <CardDescription>
+                <Bell className="h-8 w-8 text-green-dark mb-2" />
+                <CardTitle className="text-green-darkest">Dashboard & Alerts</CardTitle>
+                <CardDescription className="text-green-dark">
                   Live dashboard with visual insights and automated low-stock alerts for administrators
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Users className="h-8 w-8 text-indigo-500 mb-2" />
-                <CardTitle>Beneficiary Management</CardTitle>
-                <CardDescription>
+                <Users className="h-8 w-8 text-green-olive mb-2" />
+                <CardTitle className="text-green-darkest">Beneficiary Management</CardTitle>
+                <CardDescription className="text-green-dark">
                   Application processing, eligibility verification, and B40 income status tracking
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <CheckCircle className="h-8 w-8 text-teal-500 mb-2" />
-                <CardTitle>Application Tracking</CardTitle>
-                <CardDescription>
+                <CheckCircle className="h-8 w-8 text-green-darkest mb-2" />
+                <CardTitle className="text-green-darkest">Application Tracking</CardTitle>
+                <CardDescription className="text-green-dark">
                   Real-time status monitoring for beneficiary applications and approval processes
                 </CardDescription>
               </CardHeader>
@@ -137,13 +137,13 @@ const Index = () => {
       </section>
 
       {/* Project Abstract */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-green-light">
         <div className="max-w-4xl mx-auto">
-          <Card>
+          <Card className="border-green-medium">
             <CardHeader>
-              <CardTitle className="text-2xl text-center">Project Abstract</CardTitle>
+              <CardTitle className="text-2xl text-center text-green-darkest">Project Abstract</CardTitle>
             </CardHeader>
-            <CardContent className="text-gray-700 leading-relaxed">
+            <CardContent className="text-green-dark leading-relaxed">
               <p className="mb-4">
                 Food banks are essential in addressing food insecurity, yet many still rely on manual inventory 
                 methods prone to inefficiency and error. This project addresses the gap by developing FoodAim, 
@@ -164,15 +164,15 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-green-darkest text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">FA</span>
+            <div className="w-8 h-8 bg-gradient-to-r from-green-olive to-green-medium rounded-lg flex items-center justify-center">
+              <span className="text-green-darkest font-bold text-sm">FA</span>
             </div>
             <span className="text-xl font-bold">FoodAim</span>
           </div>
-          <p className="text-gray-400">
+          <p className="text-green-light">
             Final Year Project - Smart Food Bank Management System with IoT Integration
           </p>
         </div>

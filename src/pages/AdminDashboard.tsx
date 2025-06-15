@@ -33,7 +33,7 @@ const AdminDashboard = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "good": return "bg-green-500";
+      case "good": return "bg-green-darkest";
       case "low": return "bg-yellow-500";
       case "critical": return "bg-red-500";
       default: return "bg-gray-500";
@@ -42,33 +42,33 @@ const AdminDashboard = () => {
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case "pending": return <Badge variant="outline" className="text-yellow-600">Pending</Badge>;
-      case "approved": return <Badge className="bg-green-500">Approved</Badge>;
+      case "pending": return <Badge variant="outline" className="text-yellow-600 border-yellow-600">Pending</Badge>;
+      case "approved": return <Badge className="bg-green-darkest hover:bg-green-dark">Approved</Badge>;
       case "rejected": return <Badge variant="destructive">Rejected</Badge>;
       default: return <Badge variant="outline">Unknown</Badge>;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-green-lightest">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-white shadow-sm border-b border-green-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <Link to="/" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-darkest to-green-olive rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">FA</span>
                 </div>
-                <span className="text-xl font-bold text-gray-900">FoodAim Admin</span>
+                <span className="text-xl font-bold text-green-darkest">FoodAim Admin</span>
               </Link>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="border-green-medium text-green-darkest hover:bg-green-light">
                 <Bell className="h-4 w-4 mr-2" />
                 Alerts (3)
               </Button>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="border-green-medium text-green-darkest hover:bg-green-light">
                 <Settings className="h-4 w-4 mr-2" />
                 Settings
               </Button>
@@ -80,98 +80,98 @@ const AdminDashboard = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card>
+          <Card className="border-green-light">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Stock Items</CardTitle>
-              <Package className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-green-darkest">Total Stock Items</CardTitle>
+              <Package className="h-4 w-4 text-green-dark" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">173</div>
-              <p className="text-xs text-muted-foreground">5 items low stock</p>
+              <div className="text-2xl font-bold text-green-darkest">173</div>
+              <p className="text-xs text-green-dark">5 items low stock</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-green-light">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Beneficiaries</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-green-darkest">Active Beneficiaries</CardTitle>
+              <Users className="h-4 w-4 text-green-dark" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">482</div>
-              <p className="text-xs text-muted-foreground">+12 this week</p>
+              <div className="text-2xl font-bold text-green-darkest">482</div>
+              <p className="text-xs text-green-dark">+12 this week</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-green-light">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Pending Applications</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-green-darkest">Pending Applications</CardTitle>
+              <AlertTriangle className="h-4 w-4 text-green-dark" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">23</div>
-              <p className="text-xs text-muted-foreground">Requires review</p>
+              <div className="text-2xl font-bold text-green-darkest">23</div>
+              <p className="text-xs text-green-dark">Requires review</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-green-light">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Distribution Rate</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-green-darkest">Distribution Rate</CardTitle>
+              <TrendingUp className="h-4 w-4 text-green-dark" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">94%</div>
-              <p className="text-xs text-muted-foreground">Above target</p>
+              <div className="text-2xl font-bold text-green-darkest">94%</div>
+              <p className="text-xs text-green-dark">Above target</p>
             </CardContent>
           </Card>
         </div>
 
         <Tabs defaultValue="inventory" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="inventory">Inventory & IoT</TabsTrigger>
-            <TabsTrigger value="applications">Applications</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsList className="bg-green-light">
+            <TabsTrigger value="inventory" className="data-[state=active]:bg-green-darkest data-[state=active]:text-white">Inventory & IoT</TabsTrigger>
+            <TabsTrigger value="applications" className="data-[state=active]:bg-green-darkest data-[state=active]:text-white">Applications</TabsTrigger>
+            <TabsTrigger value="analytics" className="data-[state=active]:bg-green-darkest data-[state=active]:text-white">Analytics</TabsTrigger>
           </TabsList>
 
           <TabsContent value="inventory" className="space-y-6">
             {/* IoT Status */}
-            <Card>
+            <Card className="border-green-light">
               <CardHeader>
-                <CardTitle>IoT Sensor Status</CardTitle>
-                <CardDescription>Real-time monitoring from Arduino Uno and ultrasonic sensors</CardDescription>
+                <CardTitle className="text-green-darkest">IoT Sensor Status</CardTitle>
+                <CardDescription className="text-green-dark">Real-time monitoring from Arduino Uno and ultrasonic sensors</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="text-center p-4 bg-green-50 rounded-lg">
-                    <div className="text-2xl font-bold text-green-600">5/5</div>
-                    <p className="text-sm text-green-700">Sensors Online</p>
+                  <div className="text-center p-4 bg-green-light rounded-lg">
+                    <div className="text-2xl font-bold text-green-darkest">5/5</div>
+                    <p className="text-sm text-green-dark">Sensors Online</p>
                   </div>
-                  <div className="text-center p-4 bg-blue-50 rounded-lg">
-                    <div className="text-2xl font-bold text-blue-600">&lt; 2s</div>
-                    <p className="text-sm text-blue-700">Update Frequency</p>
+                  <div className="text-center p-4 bg-green-light rounded-lg">
+                    <div className="text-2xl font-bold text-green-darkest">&lt; 2s</div>
+                    <p className="text-sm text-green-dark">Update Frequency</p>
                   </div>
-                  <div className="text-center p-4 bg-purple-50 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-600">99.8%</div>
-                    <p className="text-sm text-purple-700">Accuracy Rate</p>
+                  <div className="text-center p-4 bg-green-light rounded-lg">
+                    <div className="text-2xl font-bold text-green-darkest">99.8%</div>
+                    <p className="text-sm text-green-dark">Accuracy Rate</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Stock Levels */}
-            <Card>
+            <Card className="border-green-light">
               <CardHeader>
-                <CardTitle>Current Stock Levels</CardTitle>
-                <CardDescription>Real-time inventory tracked by IoT sensors</CardDescription>
+                <CardTitle className="text-green-darkest">Current Stock Levels</CardTitle>
+                <CardDescription className="text-green-dark">Real-time inventory tracked by IoT sensors</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {stockData.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div key={index} className="flex items-center justify-between p-4 border border-green-light rounded-lg">
                       <div className="flex items-center space-x-3">
                         <div className={`w-3 h-3 rounded-full ${getStatusColor(item.status)}`}></div>
                         <div>
-                          <h4 className="font-medium">{item.name}</h4>
-                          <p className="text-sm text-gray-500">{item.current} / {item.max} {item.unit}</p>
+                          <h4 className="font-medium text-green-darkest">{item.name}</h4>
+                          <p className="text-sm text-green-dark">{item.current} / {item.max} {item.unit}</p>
                         </div>
                       </div>
                       <div className="w-32">
@@ -185,24 +185,24 @@ const AdminDashboard = () => {
           </TabsContent>
 
           <TabsContent value="applications" className="space-y-6">
-            <Card>
+            <Card className="border-green-light">
               <CardHeader>
-                <CardTitle>Recent Applications</CardTitle>
-                <CardDescription>Beneficiary applications requiring review</CardDescription>
+                <CardTitle className="text-green-darkest">Recent Applications</CardTitle>
+                <CardDescription className="text-green-dark">Beneficiary applications requiring review</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {recentApplications.map((app, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div key={index} className="flex items-center justify-between p-4 border border-green-light rounded-lg">
                       <div>
-                        <h4 className="font-medium">{app.name}</h4>
-                        <p className="text-sm text-gray-500">ID: {app.id} | Income: {app.income}</p>
-                        <p className="text-xs text-gray-400">Applied: {app.date}</p>
+                        <h4 className="font-medium text-green-darkest">{app.name}</h4>
+                        <p className="text-sm text-green-dark">ID: {app.id} | Income: {app.income}</p>
+                        <p className="text-xs text-green-olive">Applied: {app.date}</p>
                       </div>
                       <div className="flex items-center space-x-2">
                         {getStatusBadge(app.status)}
                         {app.status === "pending" && (
-                          <Button size="sm" variant="outline">Review</Button>
+                          <Button size="sm" variant="outline" className="border-green-medium text-green-darkest hover:bg-green-light">Review</Button>
                         )}
                       </div>
                     </div>
@@ -214,10 +214,10 @@ const AdminDashboard = () => {
 
           <TabsContent value="analytics" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card>
+              <Card className="border-green-light">
                 <CardHeader>
-                  <CardTitle>Distribution Trends</CardTitle>
-                  <CardDescription>Weekly food distribution statistics</CardDescription>
+                  <CardTitle className="text-green-darkest">Distribution Trends</CardTitle>
+                  <CardDescription className="text-green-dark">Weekly food distribution statistics</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
@@ -226,35 +226,35 @@ const AdminDashboard = () => {
                       <XAxis dataKey="name" />
                       <YAxis />
                       <Tooltip />
-                      <Bar dataKey="distributed" fill="#3B82F6" />
-                      <Bar dataKey="applications" fill="#10B981" />
+                      <Bar dataKey="distributed" fill="hsl(var(--green-darkest))" />
+                      <Bar dataKey="applications" fill="hsl(var(--green-olive))" />
                     </BarChart>
                   </ResponsiveContainer>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-green-light">
                 <CardHeader>
-                  <CardTitle>Application Status Overview</CardTitle>
-                  <CardDescription>Current application distribution</CardDescription>
+                  <CardTitle className="text-green-darkest">Application Status Overview</CardTitle>
+                  <CardDescription className="text-green-dark">Current application distribution</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm">Approved Applications</span>
-                      <span className="font-medium">156 (68%)</span>
+                      <span className="text-sm text-green-dark">Approved Applications</span>
+                      <span className="font-medium text-green-darkest">156 (68%)</span>
                     </div>
                     <Progress value={68} className="h-2" />
                     
                     <div className="flex justify-between items-center">
-                      <span className="text-sm">Pending Review</span>
-                      <span className="font-medium">23 (10%)</span>
+                      <span className="text-sm text-green-dark">Pending Review</span>
+                      <span className="font-medium text-green-darkest">23 (10%)</span>
                     </div>
                     <Progress value={10} className="h-2" />
                     
                     <div className="flex justify-between items-center">
-                      <span className="text-sm">Rejected</span>
-                      <span className="font-medium">51 (22%)</span>
+                      <span className="text-sm text-green-dark">Rejected</span>
+                      <span className="font-medium text-green-darkest">51 (22%)</span>
                     </div>
                     <Progress value={22} className="h-2" />
                   </div>
