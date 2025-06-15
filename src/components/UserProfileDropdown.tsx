@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import { User, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -16,11 +15,15 @@ const UserProfileDropdown = () => {
   const navigate = useNavigate();
   const { logout } = useLogout();
 
+  console.log("UserProfileDropdown component rendered");
+
   const handleViewProfile = () => {
+    console.log("Navigate to profile settings");
     navigate('/profile-settings');
   };
 
   const handleLogout = () => {
+    console.log("Logout button clicked");
     logout();
   };
 
