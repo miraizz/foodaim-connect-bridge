@@ -11,9 +11,11 @@ const AdminHeader = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">FA</span>
-              </div>
+              <img 
+                src="/lovable-uploads/21586494-1d72-400e-9956-9478cfa14fbc.png" 
+                alt="FoodAim Logo" 
+                className="w-8 h-8"
+              />
               <span className="text-xl font-bold text-gray-900">FoodAim Admin</span>
             </Link>
           </div>
