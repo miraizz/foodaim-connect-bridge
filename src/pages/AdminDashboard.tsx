@@ -1,6 +1,9 @@
 
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import AdminHeader from "@/components/AdminHeader";
 import StatsOverview from "@/components/StatsOverview";
 import InventoryTab from "@/components/InventoryTab";
@@ -37,15 +40,31 @@ const AdminDashboard = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <StatsOverview />
 
-        <Tabs defaultValue="inventory" className="space-y-6 mb-8">
+        <Tabs defaultValue="stock-analysis" className="space-y-6 mb-8">
           <TabsList>
-            <TabsTrigger value="inventory">Inventory & IoT</TabsTrigger>
+            <TabsTrigger value="stock-analysis">Stock Level Analysis</TabsTrigger>
+            <TabsTrigger value="inventory-management">Inventory Management</TabsTrigger>
             <TabsTrigger value="applications">Beneficiary Management</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="inventory" className="space-y-6">
+          <TabsContent value="stock-analysis" className="space-y-6">
             <InventoryTab stockData={stockData} />
+          </TabsContent>
+
+          <TabsContent value="inventory-management" className="space-y-6">
+            <div className="flex flex-col items-center justify-center py-12 space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900">Inventory Management</h3>
+              <p className="text-gray-600 text-center max-w-md">
+                Manage your food inventory items, add new items, update stock levels, and set thresholds.
+              </p>
+              <Link to="/inventory-management">
+                <Button className="mt-4">
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Go to Inventory Management
+                </Button>
+              </Link>
+            </div>
           </TabsContent>
 
           <TabsContent value="applications" className="space-y-6">
