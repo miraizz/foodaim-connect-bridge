@@ -29,30 +29,6 @@ const InventoryTab = ({ stockData }: InventoryTabProps) => {
 
   return (
     <div className="space-y-6">
-      {/* IoT Status */}
-      <Card>
-        <CardHeader>
-          <CardTitle>IoT Sensor Status</CardTitle>
-          <CardDescription>Real-time monitoring from Arduino Uno and ultrasonic sensors</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600">5/5</div>
-              <p className="text-sm text-green-700">Sensors Online</p>
-            </div>
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <div className="text-2xl font-bold text-blue-600">&lt; 2s</div>
-              <p className="text-sm text-blue-700">Update Frequency</p>
-            </div>
-            <div className="text-center p-4 bg-purple-50 rounded-lg">
-              <div className="text-2xl font-bold text-purple-600">99.8%</div>
-              <p className="text-sm text-purple-700">Accuracy Rate</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Stock Levels */}
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
@@ -83,6 +59,30 @@ const InventoryTab = ({ stockData }: InventoryTabProps) => {
                 </div>
               </div>
             ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* IoT Status */}
+      <Card>
+        <CardHeader>
+          <CardTitle>IoT Sensor Status</CardTitle>
+          <CardDescription>Real-time monitoring from Arduino Uno and ultrasonic sensors</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="text-center p-4 bg-green-50 rounded-lg">
+              <div className="text-2xl font-bold text-green-600">5/5</div>
+              <p className="text-sm text-green-700">Sensors Online</p>
+            </div>
+            <div className="text-center p-4 bg-blue-50 rounded-lg">
+              <div className="text-2xl font-bold text-blue-600">&lt; 2s</div>
+              <p className="text-sm text-blue-700">Update Frequency</p>
+            </div>
+            <div className="text-center p-4 bg-purple-50 rounded-lg">
+              <div className="text-2xl font-bold text-purple-600">99.8%</div>
+              <p className="text-sm text-purple-700">Accuracy Rate</p>
+            </div>
           </div>
         </CardContent>
       </Card>
