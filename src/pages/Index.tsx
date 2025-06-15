@@ -35,7 +35,7 @@ const Index = () => {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-green-darkest mb-6">
               Smart Food Bank
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-darkest to-green-olive">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-darkest via-gray-800 to-green-darkest">
                 Management System
               </span>
             </h1>
@@ -75,7 +75,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Shield className="h-8 w-8 text-green-darkest mb-2" />
+                <Shield className="h-8 w-8 text-blue-600 mb-2" />
                 <CardTitle className="text-green-darkest">User Authentication</CardTitle>
                 <CardDescription className="text-green-dark">
                   Secure login system for administrators and registered beneficiaries with profile management
@@ -85,7 +85,7 @@ const Index = () => {
 
             <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <BarChart3 className="h-8 w-8 text-green-olive mb-2" />
+                <BarChart3 className="h-8 w-8 text-orange-500 mb-2" />
                 <CardTitle className="text-green-darkest">Inventory Management</CardTitle>
                 <CardDescription className="text-green-dark">
                   Complete stock control with add, update, and remove functionalities for food items
@@ -95,7 +95,7 @@ const Index = () => {
 
             <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Smartphone className="h-8 w-8 text-green-medium mb-2" />
+                <Smartphone className="h-8 w-8 text-purple-600 mb-2" />
                 <CardTitle className="text-green-darkest">IoT Integration</CardTitle>
                 <CardDescription className="text-green-dark">
                   Arduino Uno and ultrasonic sensor for real-time stock level detection and monitoring
@@ -105,7 +105,7 @@ const Index = () => {
 
             <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Bell className="h-8 w-8 text-green-dark mb-2" />
+                <Bell className="h-8 w-8 text-red-500 mb-2" />
                 <CardTitle className="text-green-darkest">Dashboard & Alerts</CardTitle>
                 <CardDescription className="text-green-dark">
                   Live dashboard with visual insights and automated low-stock alerts for administrators
@@ -115,7 +115,7 @@ const Index = () => {
 
             <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <Users className="h-8 w-8 text-green-olive mb-2" />
+                <Users className="h-8 w-8 text-indigo-600 mb-2" />
                 <CardTitle className="text-green-darkest">Beneficiary Management</CardTitle>
                 <CardDescription className="text-green-dark">
                   Application processing, eligibility verification, and B40 income status tracking
@@ -125,7 +125,7 @@ const Index = () => {
 
             <Card className="hover:shadow-lg transition-shadow border-green-light">
               <CardHeader>
-                <CheckCircle className="h-8 w-8 text-green-darkest mb-2" />
+                <CheckCircle className="h-8 w-8 text-green-600 mb-2" />
                 <CardTitle className="text-green-darkest">Application Tracking</CardTitle>
                 <CardDescription className="text-green-dark">
                   Real-time status monitoring for beneficiary applications and approval processes
