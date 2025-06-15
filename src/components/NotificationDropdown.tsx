@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Bell, Check, X, Clock, Package, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 
 interface Notification {
   id: number;
@@ -176,11 +177,13 @@ const NotificationDropdown = () => {
         {notifications.length > 0 && (
           <>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="justify-center">
-              <Button variant="ghost" size="sm" className="text-xs">
-                <FileText className="h-3 w-3 mr-1" />
-                View all notifications
-              </Button>
+            <DropdownMenuItem className="justify-center p-0">
+              <Link to="/notifications" className="w-full">
+                <Button variant="ghost" size="sm" className="text-xs w-full">
+                  <FileText className="h-3 w-3 mr-1" />
+                  View all notifications
+                </Button>
+              </Link>
             </DropdownMenuItem>
           </>
         )}
