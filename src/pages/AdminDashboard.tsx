@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -228,45 +227,6 @@ const AdminDashboard = () => {
             </div>
           </TabsContent>
         </Tabs>
-
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Link to="/inventory-management" className="block">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-              <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-                <Package className="h-8 w-8 text-blue-500 mx-auto mb-2" />
-                <h3 className="font-medium text-base">Manage Inventory</h3>
-                <p className="text-sm text-gray-500">Add, edit, delete items</p>
-              </CardContent>
-            </Card>
-          </Link>
-          
-          <Link to="/beneficiary-portal" className="block">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-              <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-                <Users className="h-8 w-8 text-green-500 mx-auto mb-2" />
-                <h3 className="font-medium text-base">Review Applications</h3>
-                <p className="text-sm text-gray-500">Process B40 requests</p>
-              </CardContent>
-            </Card>
-          </Link>
-          
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-            <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-              <AlertTriangle className="h-8 w-8 text-orange-500 mx-auto mb-2" />
-              <h3 className="font-medium text-base">Stock Alerts</h3>
-              <p className="text-sm text-gray-500">Monitor low stock items</p>
-            </CardContent>
-          </Card>
-          
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-            <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-              <TrendingUp className="h-8 w-8 text-purple-500 mx-auto mb-2" />
-              <h3 className="font-medium text-base">Analytics</h3>
-              <p className="text-sm text-gray-500">View reports & trends</p>
-            </CardContent>
-          </Card>
-        </div>
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
