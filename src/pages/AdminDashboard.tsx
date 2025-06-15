@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Package, Users, AlertTriangle, TrendingUp, Bell, Settings } from "lucide-react";
+import { Package, Users, AlertTriangle, TrendingUp, Bell, Settings, User, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
@@ -68,6 +68,12 @@ const AdminDashboard = () => {
                 <Bell className="h-4 w-4 mr-2" />
                 Alerts (3)
               </Button>
+              <Link to="/profile-settings">
+                <Button variant="outline" size="sm">
+                  <User className="h-4 w-4 mr-2" />
+                  Profile
+                </Button>
+              </Link>
               <Button variant="outline" size="sm">
                 <Settings className="h-4 w-4 mr-2" />
                 Settings
@@ -78,6 +84,43 @@ const AdminDashboard = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+          <Link to="/inventory-management">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardContent className="p-6 text-center">
+                <Package className="h-8 w-8 text-blue-500 mx-auto mb-2" />
+                <h3 className="font-medium">Manage Inventory</h3>
+                <p className="text-sm text-gray-500">Add, edit, delete items</p>
+              </CardContent>
+            </Card>
+          </Link>
+          
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+            <CardContent className="p-6 text-center">
+              <Users className="h-8 w-8 text-green-500 mx-auto mb-2" />
+              <h3 className="font-medium">Review Applications</h3>
+              <p className="text-sm text-gray-500">Process B40 requests</p>
+            </CardContent>
+          </Card>
+          
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+            <CardContent className="p-6 text-center">
+              <AlertTriangle className="h-8 w-8 text-orange-500 mx-auto mb-2" />
+              <h3 className="font-medium">Stock Alerts</h3>
+              <p className="text-sm text-gray-500">Monitor low stock items</p>
+            </CardContent>
+          </Card>
+          
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+            <CardContent className="p-6 text-center">
+              <TrendingUp className="h-8 w-8 text-purple-500 mx-auto mb-2" />
+              <h3 className="font-medium">Analytics</h3>
+              <p className="text-sm text-gray-500">View reports & trends</p>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
@@ -128,7 +171,7 @@ const AdminDashboard = () => {
         <Tabs defaultValue="inventory" className="space-y-6">
           <TabsList>
             <TabsTrigger value="inventory">Inventory & IoT</TabsTrigger>
-            <TabsTrigger value="applications">Applications</TabsTrigger>
+            <TabsTrigger value="applications">Beneficiary Management</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
           </TabsList>
 
@@ -159,9 +202,17 @@ const AdminDashboard = () => {
 
             {/* Stock Levels */}
             <Card>
-              <CardHeader>
-                <CardTitle>Current Stock Levels</CardTitle>
-                <CardDescription>Real-time inventory tracked by IoT sensors</CardDescription>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <div>
+                  <CardTitle>Current Stock Levels</CardTitle>
+                  <CardDescription>Real-time inventory tracked by IoT sensors</CardDescription>
+                </div>
+                <Link to="/inventory-management">
+                  <Button size="sm">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Manage Items
+                  </Button>
+                </Link>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -188,7 +239,7 @@ const AdminDashboard = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Recent Applications</CardTitle>
-                <CardDescription>Beneficiary applications requiring review</CardDescription>
+                <CardDescription>B40 beneficiary applications requiring review</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">

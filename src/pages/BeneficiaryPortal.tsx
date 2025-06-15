@@ -88,10 +88,12 @@ const BeneficiaryPortal = () => {
               </Link>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm">
-                <User className="h-4 w-4 mr-2" />
-                Profile
-              </Button>
+              <Link to="/profile-settings">
+                <Button variant="outline" size="sm">
+                  <User className="h-4 w-4 mr-2" />
+                  Profile
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
