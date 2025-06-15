@@ -44,7 +44,7 @@ const Register = () => {
             <img 
               src="/lovable-uploads/34d10014-7924-4265-8769-72a1f10d1e8a.png" 
               alt="FoodAim Logo" 
-              className="w-8 h-8"
+              className="w-12 h-12"
             />
             <span className="text-xl font-bold text-gray-900">FoodAim</span>
           </Link>
