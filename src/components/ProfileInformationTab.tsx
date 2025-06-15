@@ -8,14 +8,36 @@ import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Upload, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from "react-router-dom";
 
 const ProfileInformationTab = () => {
-  const [profileData, setProfileData] = useState({
-    name: "John Administrator",
-    email: "admin@foodbank.org",
-    phone: "+60123456789",
-    address: "123 Main Street, Kuala Lumpur",
-    role: "Administrator"
+  const location = useLocation();
+  const isAdmin = location.pathname.includes('admin') || localStorage.getItem('userRole') === 'admin';
+  
+  const [profileData, setProfileData] = useState(() => {
+    if (isAdmin) {
+      return {
+        name: "John Administrator",
+        email: "admin@foodbank.org",
+        phone: "+60123456789",
+        address: "123 Main Street, Kuala Lumpur",
+        role: "Administrator",
+        department: "Operations Management",
+        employeeId: "EMP001",
+        accessLevel: "Full Access"
+      };
+    } else {
+      return {
+        name: "Ahmad Abdullah",
+        email: "ahmad.abdullah@gmail.com",
+        phone: "+60187654321",
+        address: "456 Jalan Raya, Selangor",
+        role: "Beneficiary",
+        householdSize: "4 members",
+        monthlyIncome: "RM 1,200",
+        beneficiaryId: "BEN001"
+      };
+    }
   });
 
   const { toast } = useToast();
@@ -43,7 +65,7 @@ const ProfileInformationTab = () => {
       <CardHeader>
         <CardTitle>Profile Information</CardTitle>
         <CardDescription>
-          Update your personal information and profile picture
+          {isAdmin ? "Update your administrative profile and contact information" : "Update your personal information and beneficiary details"}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -112,6 +134,69 @@ const ProfileInformationTab = () => {
                 className="bg-gray-100"
               />
             </div>
+
+            {/* Admin-specific fields */}
+            {isAdmin && (
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="department">Department</Label>
+                  <Input
+                    id="department"
+                    value={profileData.department}
+                    onChange={(e) => setProfileData({ ...profileData, department: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="employeeId">Employee ID</Label>
+                  <Input
+                    id="employeeId"
+                    value={profileData.employeeId}
+                    disabled
+                    className="bg-gray-100"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="accessLevel">Access Level</Label>
+                  <Input
+                    id="accessLevel"
+                    value={profileData.accessLevel}
+                    disabled
+                    className="bg-gray-100"
+                  />
+                </div>
+              </>
+            )}
+
+            {/* Beneficiary-specific fields */}
+            {!isAdmin && (
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="householdSize">Household Size</Label>
+                  <Input
+                    id="householdSize"
+                    value={profileData.householdSize}
+                    onChange={(e) => setProfileData({ ...profileData, householdSize: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="monthlyIncome">Monthly Income</Label>
+                  <Input
+                    id="monthlyIncome"
+                    value={profileData.monthlyIncome}
+                    onChange={(e) => setProfileData({ ...profileData, monthlyIncome: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="beneficiaryId">Beneficiary ID</Label>
+                  <Input
+                    id="beneficiaryId"
+                    value={profileData.beneficiaryId}
+                    disabled
+                    className="bg-gray-100"
+                  />
+                </div>
+              </>
+            )}
           </div>
 
           <div className="space-y-2">
