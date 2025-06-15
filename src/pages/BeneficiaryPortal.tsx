@@ -28,7 +28,7 @@ const BeneficiaryPortal = () => {
     },
     {
       id: 2,
-      location: "Local Church - Westside",
+      location: "Student Center - Westside",
       date: "2024-01-18",
       time: "9:00 AM - 12:00 PM",
       status: "pending",
@@ -204,18 +204,24 @@ const BeneficiaryPortal = () => {
                     <CardTitle className="text-lg">Quick Actions</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
-                    <Button className="w-full" variant="outline">
-                      <Package className="h-4 w-4 mr-2" />
-                      Request Emergency Food
-                    </Button>
-                    <Button className="w-full" variant="outline">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      Find Nearby Locations
-                    </Button>
-                    <Button className="w-full" variant="outline">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      Schedule Pickup
-                    </Button>
+                    <Link to="/beneficiary-portal?tab=apply-assistance">
+                      <Button className="w-full" variant="outline">
+                        <Package className="h-4 w-4 mr-2" />
+                        Request Emergency Food
+                      </Button>
+                    </Link>
+                    <Link to="/beneficiary-portal?tab=food-availability">
+                      <Button className="w-full" variant="outline">
+                        <MapPin className="h-4 w-4 mr-2" />
+                        Find Nearby Locations
+                      </Button>
+                    </Link>
+                    <Link to="/beneficiary-portal?tab=apply-assistance">
+                      <Button className="w-full" variant="outline">
+                        <Calendar className="h-4 w-4 mr-2" />
+                        Schedule Pickup
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </div>
