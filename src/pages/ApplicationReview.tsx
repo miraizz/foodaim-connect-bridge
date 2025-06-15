@@ -94,21 +94,23 @@ const ApplicationReview = () => {
       <AdminHeader />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
+        {/* Back Button - moved above header */}
+        <div className="mb-4">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => navigate("/admin-dashboard")}
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Dashboard
+          </Button>
+        </div>
+
+        {/* Header - now closer to left frame */}
         <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => navigate("/admin-dashboard")}
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Dashboard
-            </Button>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Application Review</h1>
-              <p className="text-gray-600">Review and process B40 beneficiary application</p>
-            </div>
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">Application Review</h1>
+            <p className="text-gray-600">Review and process B40 beneficiary application</p>
           </div>
           <Badge variant="outline" className="text-yellow-600">
             {application.status}
