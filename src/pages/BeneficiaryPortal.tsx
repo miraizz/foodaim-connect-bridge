@@ -175,9 +175,8 @@ const BeneficiaryPortal = () => {
                 </Card>
               </div>
 
-              {/* Quick Stats & Actions */}
+              {/* Quick Stats */}
               <div className="space-y-6">
-                {/* Quick Stats */}
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Your Impact</CardTitle>
@@ -195,33 +194,6 @@ const BeneficiaryPortal = () => {
                       <Star className="h-4 w-4 text-yellow-500" />
                       <span className="text-sm text-gray-600">Member since Jan 2024</span>
                     </div>
-                  </CardContent>
-                </Card>
-
-                {/* Quick Actions */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Quick Actions</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <Link to="/beneficiary-portal?tab=apply-assistance">
-                      <Button className="w-full" variant="outline">
-                        <Package className="h-4 w-4 mr-2" />
-                        Request Emergency Food
-                      </Button>
-                    </Link>
-                    <Link to="/beneficiary-portal?tab=food-availability">
-                      <Button className="w-full" variant="outline">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        Find Nearby Locations
-                      </Button>
-                    </Link>
-                    <Link to="/beneficiary-portal?tab=apply-assistance">
-                      <Button className="w-full" variant="outline">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        Schedule Pickup
-                      </Button>
-                    </Link>
                   </CardContent>
                 </Card>
               </div>
