@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom right, #E9F5DB, #CFE1B9)' }}>
       {/* Navigation */}
       <nav className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,7 +35,7 @@ const Index = () => {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Smart Food Bank
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-800" style={{ backgroundImage: 'linear-gradient(to right, #87986A, #718355)' }}>
                 Management System
               </span>
             </h1>
@@ -164,7 +164,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="text-white py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#718355' }}>
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
@@ -172,7 +172,7 @@ const Index = () => {
             </div>
             <span className="text-xl font-bold">FoodAim</span>
           </div>
-          <p className="text-gray-400">
+          <p className="text-gray-200">
             Final Year Project - Smart Food Bank Management System with IoT Integration
           </p>
         </div>
