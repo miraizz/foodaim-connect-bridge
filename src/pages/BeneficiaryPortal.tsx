@@ -1,12 +1,10 @@
+
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, MapPin, Clock, Package, Star, Bell, Apple, FileText, BarChart3 } from "lucide-react";
-import { Link } from "react-router-dom";
-import UserProfileDropdown from "@/components/UserProfileDropdown";
-import NotificationDropdown from "@/components/NotificationDropdown";
+import { Apple, FileText, BarChart3, Clock } from "lucide-react";
+import BeneficiaryHeader from "@/components/BeneficiaryHeader";
+import WelcomeSection from "@/components/WelcomeSection";
+import OverviewTab from "@/components/OverviewTab";
 import FoodAvailabilityTab from "@/components/FoodAvailabilityTab";
 import ApplyAssistanceTab from "@/components/ApplyAssistanceTab";
 import ApplicationStatusTab from "@/components/ApplicationStatusTab";
@@ -39,36 +37,10 @@ const BeneficiaryPortal = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <Link to="/" className="flex items-center space-x-2">
-                <img 
-                  src="/lovable-uploads/34d10014-7924-4265-8769-72a1f10d1e8a.png" 
-                  alt="FoodAim Logo" 
-                  className="w-8 h-8"
-                />
-                <span className="text-xl font-bold text-gray-900">FoodAim</span>
-              </Link>
-              <span className="text-gray-400">|</span>
-              <span className="text-gray-600">Beneficiary Portal</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <NotificationDropdown />
-              <UserProfileDropdown />
-            </div>
-          </div>
-        </div>
-      </header>
+      <BeneficiaryHeader />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Welcome Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome to Your Portal</h1>
-          <p className="text-gray-600">Access food availability, submit applications, and track your requests.</p>
-        </div>
+        <WelcomeSection />
 
         {/* Main Content with Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
@@ -92,101 +64,10 @@ const BeneficiaryPortal = () => {
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
-            {/* Notifications */}
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Upcoming Pickups */}
-              <div className="lg:col-span-2">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <Calendar className="h-5 w-5 mr-2 text-green-600" />
-                      Upcoming Food Pickups
-                    </CardTitle>
-                    <CardDescription>
-                      Your scheduled food collection appointments
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {upcomingPickups.map((pickup) => (
-                        <div key={pickup.id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                          <div className="flex justify-between items-start mb-3">
-                            <div>
-                              <h3 className="font-semibold text-gray-900 flex items-center">
-                                <MapPin className="h-4 w-4 mr-1 text-gray-500" />
-                                {pickup.location}
-                              </h3>
-                              <p className="text-sm text-gray-600 flex items-center mt-1">
-                                <Clock className="h-4 w-4 mr-1" />
-                                {pickup.date} • {pickup.time}
-                              </p>
-                            </div>
-                            <Badge variant={pickup.status === 'confirmed' ? 'default' : 'secondary'}>
-                              {pickup.status}
-                            </Badge>
-                          </div>
-                          <div>
-                            <p className="text-sm font-medium text-gray-700 mb-2">Available Items:</p>
-                            <div className="flex flex-wrap gap-2">
-                              {pickup.items.map((item, index) => (
-                                <Badge key={index} variant="outline" className="text-xs">
-                                  {item}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Your Impact</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-600">12</div>
-                      <p className="text-sm text-gray-600">Food packages received</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600">36</div>
-                      <p className="text-sm text-gray-600">Meals provided</p>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Star className="h-4 w-4 text-yellow-500" />
-                      <span className="text-sm text-gray-600">Member since Jan 2024</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {/* Recent Activity */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Recent Activity</CardTitle>
-                <CardDescription>Your recent interactions with FoodAim</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {recentActivity.map((activity) => (
-                    <div key={activity.id} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
-                      <div>
-                        <p className="font-medium text-gray-900">{activity.action}</p>
-                        <p className="text-sm text-gray-600">{activity.location}</p>
-                      </div>
-                      <span className="text-sm text-gray-500">{activity.date}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <OverviewTab 
+              upcomingPickups={upcomingPickups} 
+              recentActivity={recentActivity} 
+            />
           </TabsContent>
 
           <TabsContent value="food-availability">
