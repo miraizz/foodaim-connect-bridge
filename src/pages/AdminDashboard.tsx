@@ -5,8 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Package, Users, AlertTriangle, TrendingUp, Bell, Settings, User, Plus } from "lucide-react";
+import { Package, Users, AlertTriangle, TrendingUp, Bell, Settings, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import UserProfileDropdown from "@/components/UserProfileDropdown";
 
 const AdminDashboard = () => {
   const [stockData] = useState([
@@ -68,12 +69,7 @@ const AdminDashboard = () => {
                 <Bell className="h-4 w-4 mr-2" />
                 Alerts (3)
               </Button>
-              <Link to="/profile-settings">
-                <Button variant="outline" size="sm">
-                  <User className="h-4 w-4 mr-2" />
-                  Profile
-                </Button>
-              </Link>
+              <UserProfileDropdown />
               <Button variant="outline" size="sm">
                 <Settings className="h-4 w-4 mr-2" />
                 Settings
@@ -83,6 +79,7 @@ const AdminDashboard = () => {
         </div>
       </header>
 
+      {/* Quick Actions */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
