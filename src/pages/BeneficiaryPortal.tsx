@@ -2,76 +2,42 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Package, Clock, CheckCircle, Upload, User, FileText } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, MapPin, Clock, Package, Star, Bell } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useToast } from "@/hooks/use-toast";
+import UserProfileDropdown from "@/components/UserProfileDropdown";
 
 const BeneficiaryPortal = () => {
-  const [applicationForm, setApplicationForm] = useState({
-    reason: "",
-    urgency: "medium",
-    additionalNotes: ""
-  });
-
-  const { toast } = useToast();
-
-  const [availableFood] = useState([
-    { name: "Rice", available: 75, unit: "kg", category: "Staples", lastUpdated: "2 mins ago" },
-    { name: "Canned Food", available: 45, unit: "units", category: "Preserved", lastUpdated: "5 mins ago" },
-    { name: "Bread", available: 15, unit: "loaves", category: "Bakery", lastUpdated: "1 min ago" },
-    { name: "Vegetables", available: 30, unit: "kg", category: "Fresh", lastUpdated: "3 mins ago" },
-    { name: "Milk", available: 8, unit: "cartons", category: "Dairy", lastUpdated: "4 mins ago" },
+  const [notifications] = useState([
+    { id: 1, message: "New food package available for pickup", time: "2 hours ago" },
+    { id: 2, message: "Your application has been approved", time: "1 day ago" },
   ]);
 
-  const [myApplications] = useState([
-    { 
-      id: "APP001", 
-      status: "approved", 
-      submittedDate: "2024-06-05", 
-      reviewDate: "2024-06-07",
-      items: "Rice (5kg), Canned Food (10 units)",
-      notes: "Application approved. Please collect within 7 days."
+  const [upcomingPickups] = useState([
+    {
+      id: 1,
+      location: "Community Center - Downtown",
+      date: "2024-01-15",
+      time: "10:00 AM - 2:00 PM",
+      status: "confirmed",
+      items: ["Fresh Vegetables", "Bread", "Canned Goods"]
     },
-    { 
-      id: "APP002", 
-      status: "pending", 
-      submittedDate: "2024-06-10", 
-      reviewDate: null,
-      items: "Bread (3 loaves), Milk (5 cartons)",
-      notes: "Under review by administrator."
+    {
+      id: 2,
+      location: "Local Church - Westside",
+      date: "2024-01-18",
+      time: "9:00 AM - 12:00 PM",
+      status: "pending",
+      items: ["Rice", "Pasta", "Dairy Products"]
     }
   ]);
 
-  const handleApplicationSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({ 
-      title: "Application Submitted", 
-      description: "Your food assistance application has been submitted for review." 
-    });
-    setApplicationForm({ reason: "", urgency: "medium", additionalNotes: "" });
-  };
-
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case "pending": return <Badge variant="outline" className="text-yellow-600">Pending Review</Badge>;
-      case "approved": return <Badge className="bg-green-500">Approved</Badge>;
-      case "rejected": return <Badge variant="destructive">Rejected</Badge>;
-      case "collected": return <Badge className="bg-blue-500">Collected</Badge>;
-      default: return <Badge variant="outline">Unknown</Badge>;
-    }
-  };
-
-  const getAvailabilityColor = (available: number) => {
-    if (available > 30) return "text-green-600";
-    if (available > 10) return "text-yellow-600";
-    return "text-red-600";
-  };
+  const [recentActivity] = useState([
+    { id: 1, action: "Food package collected", location: "Community Center", date: "2024-01-10" },
+    { id: 2, action: "Application submitted", location: "Online", date: "2024-01-05" },
+    { id: 3, action: "Profile updated", location: "Online", date: "2024-01-03" },
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -81,19 +47,26 @@ const BeneficiaryPortal = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <Link to="/" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">FA</span>
-                </div>
-                <span className="text-xl font-bold text-gray-900">FoodAim Portal</span>
+                <img 
+                  src="/lovable-uploads/34d10014-7924-4265-8769-72a1f10d1e8a.png" 
+                  alt="FoodAim Logo" 
+                  className="w-8 h-8"
+                />
+                <span className="text-xl font-bold text-gray-900">FoodAim</span>
               </Link>
+              <span className="text-gray-400">|</span>
+              <span className="text-gray-600">Beneficiary Portal</span>
             </div>
             <div className="flex items-center space-x-4">
-              <Link to="/profile-settings">
-                <Button variant="outline" size="sm">
-                  <User className="h-4 w-4 mr-2" />
-                  Profile
-                </Button>
-              </Link>
+              <Button variant="ghost" size="sm" className="relative">
+                <Bell className="h-5 w-5" />
+                {notifications.length > 0 && (
+                  <Badge className="absolute -top-2 -right-2 w-5 h-5 p-0 flex items-center justify-center text-xs">
+                    {notifications.length}
+                  </Badge>
+                )}
+              </Button>
+              <UserProfileDropdown />
             </div>
           </div>
         </div>
@@ -102,196 +75,147 @@ const BeneficiaryPortal = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to Your Portal</h1>
-          <p className="text-gray-600">Access food availability, submit applications, and track your requests.</p>
+          <h1 className="text-3xl font-bold text-gray-900">Welcome, John!</h1>
+          <p className="text-gray-600">Manage your food assistance and view upcoming pickups</p>
         </div>
 
-        <Tabs defaultValue="availability" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="availability">Food Availability</TabsTrigger>
-            <TabsTrigger value="apply">Apply for Assistance</TabsTrigger>
-            <TabsTrigger value="status">Application Status</TabsTrigger>
-          </TabsList>
+        {/* Notifications */}
+        {notifications.length > 0 && (
+          <Card className="mb-6 border-l-4 border-l-blue-500">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center">
+                <Bell className="h-5 w-5 mr-2 text-blue-500" />
+                Recent Notifications
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {notifications.map((notification) => (
+                  <div key={notification.id} className="flex justify-between items-start">
+                    <p className="text-gray-700">{notification.message}</p>
+                    <span className="text-sm text-gray-500">{notification.time}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
-          <TabsContent value="availability" className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Upcoming Pickups */}
+          <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle>Current Food Availability</CardTitle>
-                <CardDescription>Real-time stock levels updated by our IoT monitoring system</CardDescription>
+                <CardTitle className="flex items-center">
+                  <Calendar className="h-5 w-5 mr-2 text-green-600" />
+                  Upcoming Food Pickups
+                </CardTitle>
+                <CardDescription>
+                  Your scheduled food collection appointments
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {availableFood.map((item, index) => (
-                    <div key={index} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-medium">{item.name}</h3>
-                        <Badge variant="outline">{item.category}</Badge>
+                <div className="space-y-4">
+                  {upcomingPickups.map((pickup) => (
+                    <div key={pickup.id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                      <div className="flex justify-between items-start mb-3">
+                        <div>
+                          <h3 className="font-semibold text-gray-900 flex items-center">
+                            <MapPin className="h-4 w-4 mr-1 text-gray-500" />
+                            {pickup.location}
+                          </h3>
+                          <p className="text-sm text-gray-600 flex items-center mt-1">
+                            <Clock className="h-4 w-4 mr-1" />
+                            {pickup.date} • {pickup.time}
+                          </p>
+                        </div>
+                        <Badge variant={pickup.status === 'confirmed' ? 'default' : 'secondary'}>
+                          {pickup.status}
+                        </Badge>
                       </div>
-                      <div className={`text-2xl font-bold mb-1 ${getAvailabilityColor(item.available)}`}>
-                        {item.available} {item.unit}
-                      </div>
-                      <p className="text-xs text-gray-500">Updated {item.lastUpdated}</p>
-                      <div className="mt-3">
-                        <Progress 
-                          value={Math.min((item.available / 100) * 100, 100)} 
-                          className="h-2" 
-                        />
+                      <div>
+                        <p className="text-sm font-medium text-gray-700 mb-2">Available Items:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {pickup.items.map((item, index) => (
+                            <Badge key={index} variant="outline" className="text-xs">
+                              {item}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
               </CardContent>
             </Card>
+          </div>
 
+          {/* Quick Stats & Actions */}
+          <div className="space-y-6">
+            {/* Quick Stats */}
             <Card>
               <CardHeader>
-                <CardTitle>Collection Information</CardTitle>
+                <CardTitle className="text-lg">Your Impact</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-medium mb-2">Collection Hours</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>Monday - Friday: 9:00 AM - 5:00 PM</li>
-                      <li>Saturday: 9:00 AM - 1:00 PM</li>
-                      <li>Sunday: Closed</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-2">Requirements</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Valid ID card</li>
-                      <li>• Approved application reference</li>
-                      <li>• Bring your own bags</li>
-                    </ul>
-                  </div>
+              <CardContent className="space-y-4">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-green-600">12</div>
+                  <p className="text-sm text-gray-600">Food packages received</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600">36</div>
+                  <p className="text-sm text-gray-600">Meals provided</p>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Star className="h-4 w-4 text-yellow-500" />
+                  <span className="text-sm text-gray-600">Member since Jan 2024</span>
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
 
-          <TabsContent value="apply" className="space-y-6">
+            {/* Quick Actions */}
             <Card>
               <CardHeader>
-                <CardTitle>Apply for Food Assistance</CardTitle>
-                <CardDescription>Submit a new application for food assistance</CardDescription>
+                <CardTitle className="text-lg">Quick Actions</CardTitle>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleApplicationSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="reason">Reason for Application *</Label>
-                    <Textarea
-                      id="reason"
-                      value={applicationForm.reason}
-                      onChange={(e) => setApplicationForm({ ...applicationForm, reason: e.target.value })}
-                      placeholder="Please describe your current situation and why you need food assistance..."
-                      rows={4}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="urgency">Urgency Level</Label>
-                    <select
-                      id="urgency"
-                      value={applicationForm.urgency}
-                      onChange={(e) => setApplicationForm({ ...applicationForm, urgency: e.target.value })}
-                      className="w-full p-2 border border-gray-300 rounded-md"
-                    >
-                      <option value="low">Low - Can wait 1-2 weeks</option>
-                      <option value="medium">Medium - Need within 1 week</option>
-                      <option value="high">High - Urgent, need within 2-3 days</option>
-                    </select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="additionalNotes">Additional Notes</Label>
-                    <Textarea
-                      id="additionalNotes"
-                      value={applicationForm.additionalNotes}
-                      onChange={(e) => setApplicationForm({ ...applicationForm, additionalNotes: e.target.value })}
-                      placeholder="Any additional information or special requirements..."
-                      rows={3}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label>Upload B40 Income Proof (if applicable)</Label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                      <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-                      <p className="text-sm text-gray-500">Click to upload or drag and drop</p>
-                      <p className="text-xs text-gray-400">PDF, JPG, PNG (max 5MB)</p>
-                    </div>
-                  </div>
-
-                  <Button type="submit" className="w-full">
-                    <FileText className="h-4 w-4 mr-2" />
-                    Submit Application
-                  </Button>
-                </form>
+              <CardContent className="space-y-3">
+                <Button className="w-full" variant="outline">
+                  <Package className="h-4 w-4 mr-2" />
+                  Request Emergency Food
+                </Button>
+                <Button className="w-full" variant="outline">
+                  <MapPin className="h-4 w-4 mr-2" />
+                  Find Nearby Locations
+                </Button>
+                <Button className="w-full" variant="outline">
+                  <Calendar className="h-4 w-4 mr-2" />
+                  Schedule Pickup
+                </Button>
               </CardContent>
             </Card>
-          </TabsContent>
+          </div>
+        </div>
 
-          <TabsContent value="status" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>My Applications</CardTitle>
-                <CardDescription>Track the status of your food assistance applications</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  {myApplications.map((app, index) => (
-                    <div key={index} className="border rounded-lg p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center space-x-3">
-                          <h3 className="font-medium">Application #{app.id}</h3>
-                          {getStatusBadge(app.status)}
-                        </div>
-                        <div className="text-sm text-gray-500">
-                          Submitted: {app.submittedDate}
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-700 mb-1">Requested Items</h4>
-                          <p className="text-sm text-gray-600">{app.items}</p>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-700 mb-1">Review Status</h4>
-                          <p className="text-sm text-gray-600">{app.notes}</p>
-                        </div>
-                      </div>
-
-                      {app.status === "pending" && (
-                        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                          <div className="flex items-center">
-                            <Clock className="h-4 w-4 text-yellow-600 mr-2" />
-                            <span className="text-sm text-yellow-800">
-                              Your application is under review. You will be notified once it's processed.
-                            </span>
-                          </div>
-                        </div>
-                      )}
-
-                      {app.status === "approved" && (
-                        <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                          <div className="flex items-center">
-                            <CheckCircle className="h-4 w-4 text-green-600 mr-2" />
-                            <span className="text-sm text-green-800">
-                              Approved! Please collect your items during our operating hours.
-                            </span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+        {/* Recent Activity */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>Recent Activity</CardTitle>
+            <CardDescription>Your recent interactions with FoodAim</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {recentActivity.map((activity) => (
+                <div key={activity.id} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                  <div>
+                    <p className="font-medium text-gray-900">{activity.action}</p>
+                    <p className="text-sm text-gray-600">{activity.location}</p>
+                  </div>
+                  <span className="text-sm text-gray-500">{activity.date}</span>
                 </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
