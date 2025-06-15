@@ -1,8 +1,9 @@
 
 import { Button } from "@/components/ui/button";
-import { Bell, Settings } from "lucide-react";
+import { Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 import UserProfileDropdown from "@/components/UserProfileDropdown";
+import LowStockAlerts from "@/components/LowStockAlerts";
 
 const AdminHeader = () => {
   return (
@@ -20,10 +21,7 @@ const AdminHeader = () => {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              <Bell className="h-4 w-4 mr-2" />
-              Alerts (3)
-            </Button>
+            <LowStockAlerts />
             <UserProfileDropdown />
             <Button variant="outline" size="sm">
               <Settings className="h-4 w-4 mr-2" />
