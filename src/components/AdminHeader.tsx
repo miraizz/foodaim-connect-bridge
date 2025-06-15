@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Bell, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -12,7 +11,7 @@ const AdminHeader = () => {
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center space-x-2">
               <img 
-                src="/lovable-uploads/21586494-1d72-400e-9956-9478cfa14fbc.png" 
+                src="/lovable-uploads/4fe827b8-33ce-4e98-9695-5d8eb08a5ca1.png" 
                 alt="FoodAim Logo" 
                 className="w-8 h-8"
               />
