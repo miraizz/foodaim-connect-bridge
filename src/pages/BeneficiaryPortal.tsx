@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,16 +6,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar, MapPin, Clock, Package, Star, Bell, Apple, FileText, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import UserProfileDropdown from "@/components/UserProfileDropdown";
+import NotificationDropdown from "@/components/NotificationDropdown";
 import FoodAvailabilityTab from "@/components/FoodAvailabilityTab";
 import ApplyAssistanceTab from "@/components/ApplyAssistanceTab";
 import ApplicationStatusTab from "@/components/ApplicationStatusTab";
 
 const BeneficiaryPortal = () => {
-  const [notifications] = useState([
-    { id: 1, message: "New food package available for pickup", time: "2 hours ago" },
-    { id: 2, message: "Your application has been approved", time: "1 day ago" },
-  ]);
-
   const [upcomingPickups] = useState([
     {
       id: 1,
@@ -61,14 +56,7 @@ const BeneficiaryPortal = () => {
               <span className="text-gray-600">Beneficiary Portal</span>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm" className="relative">
-                <Bell className="h-5 w-5" />
-                {notifications.length > 0 && (
-                  <Badge className="absolute -top-2 -right-2 w-5 h-5 p-0 flex items-center justify-center text-xs">
-                    {notifications.length}
-                  </Badge>
-                )}
-              </Button>
+              <NotificationDropdown />
               <UserProfileDropdown />
             </div>
           </div>
@@ -105,27 +93,7 @@ const BeneficiaryPortal = () => {
 
           <TabsContent value="overview" className="space-y-6">
             {/* Notifications */}
-            {notifications.length > 0 && (
-              <Card className="border-l-4 border-l-blue-500">
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center">
-                    <Bell className="h-5 w-5 mr-2 text-blue-500" />
-                    Recent Notifications
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {notifications.map((notification) => (
-                      <div key={notification.id} className="flex justify-between items-start">
-                        <p className="text-gray-700">{notification.message}</p>
-                        <span className="text-sm text-gray-500">{notification.time}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
+            
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Upcoming Pickups */}
               <div className="lg:col-span-2">
