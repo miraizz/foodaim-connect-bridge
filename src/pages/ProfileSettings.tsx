@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,9 +6,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Upload, User, Lock, ArrowLeft } from "lucide-react";
+import { Upload, User, Lock, ArrowLeft, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { useLogout } from "@/utils/auth";
 
 const ProfileSettings = () => {
   const [profileData, setProfileData] = useState({
@@ -28,6 +28,7 @@ const ProfileSettings = () => {
 
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { logout } = useLogout();
 
   const handleProfileUpdate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,6 +87,10 @@ const ProfileSettings = () => {
               <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
+              </Button>
+              <Button variant="outline" size="sm" onClick={logout}>
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
               </Button>
             </div>
           </div>
@@ -272,6 +277,20 @@ const ProfileSettings = () => {
                     <div>
                       <h4 className="font-medium text-blue-800">Password Last Changed</h4>
                       <p className="text-sm text-blue-600">2 weeks ago</p>
+                    </div>
+                  </div>
+
+                  {/* Logout Section */}
+                  <div className="pt-4 border-t">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h4 className="font-medium text-gray-800">Sign Out</h4>
+                        <p className="text-sm text-gray-600">Sign out of your account on this device</p>
+                      </div>
+                      <Button variant="outline" onClick={logout}>
+                        <LogOut className="h-4 w-4 mr-2" />
+                        Sign Out
+                      </Button>
                     </div>
                   </div>
                 </div>
