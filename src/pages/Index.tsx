@@ -45,7 +45,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/admin-dashboard">
-                <Button size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700">
+                <Button size="lg" className="bg-green-800 hover:bg-green-900">
                   Admin Dashboard
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
