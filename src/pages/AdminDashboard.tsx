@@ -80,99 +80,9 @@ const AdminDashboard = () => {
         </div>
       </header>
 
-      {/* Quick Actions */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Link to="/inventory-management" className="block">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-              <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-                <Package className="h-8 w-8 text-blue-500 mx-auto mb-2" />
-                <h3 className="font-medium text-base">Manage Inventory</h3>
-                <p className="text-sm text-gray-500">Add, edit, delete items</p>
-              </CardContent>
-            </Card>
-          </Link>
-          
-          <Link to="/beneficiary-portal" className="block">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-              <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-                <Users className="h-8 w-8 text-green-500 mx-auto mb-2" />
-                <h3 className="font-medium text-base">Review Applications</h3>
-                <p className="text-sm text-gray-500">Process B40 requests</p>
-              </CardContent>
-            </Card>
-          </Link>
-          
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-            <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-              <AlertTriangle className="h-8 w-8 text-orange-500 mx-auto mb-2" />
-              <h3 className="font-medium text-base">Stock Alerts</h3>
-              <p className="text-sm text-gray-500">Monitor low stock items</p>
-            </CardContent>
-          </Card>
-          
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-            <CardContent className="p-6 text-center flex flex-col justify-center h-full">
-              <TrendingUp className="h-8 w-8 text-purple-500 mx-auto mb-2" />
-              <h3 className="font-medium text-base">Analytics</h3>
-              <p className="text-sm text-gray-500">View reports & trends</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Link to="/inventory-management" className="block">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Stock Items</CardTitle>
-                <Package className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">173</div>
-                <p className="text-xs text-muted-foreground">5 items low stock</p>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link to="/beneficiary-portal" className="block">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Beneficiaries</CardTitle>
-                <Users className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">482</div>
-                <p className="text-xs text-muted-foreground">+12 this week</p>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Pending Applications</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">23</div>
-              <p className="text-xs text-muted-foreground">Requires review</p>
-            </CardContent>
-          </Card>
-
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Distribution Rate</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">94%</div>
-              <p className="text-xs text-muted-foreground">Above target</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <Tabs defaultValue="inventory" className="space-y-6">
+        {/* Tabs Section - Moved to top */}
+        <Tabs defaultValue="inventory" className="space-y-6 mb-8">
           <TabsList>
             <TabsTrigger value="inventory">Inventory & IoT</TabsTrigger>
             <TabsTrigger value="applications">Beneficiary Management</TabsTrigger>
@@ -318,6 +228,96 @@ const AdminDashboard = () => {
             </div>
           </TabsContent>
         </Tabs>
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Link to="/inventory-management" className="block">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+              <CardContent className="p-6 text-center flex flex-col justify-center h-full">
+                <Package className="h-8 w-8 text-blue-500 mx-auto mb-2" />
+                <h3 className="font-medium text-base">Manage Inventory</h3>
+                <p className="text-sm text-gray-500">Add, edit, delete items</p>
+              </CardContent>
+            </Card>
+          </Link>
+          
+          <Link to="/beneficiary-portal" className="block">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+              <CardContent className="p-6 text-center flex flex-col justify-center h-full">
+                <Users className="h-8 w-8 text-green-500 mx-auto mb-2" />
+                <h3 className="font-medium text-base">Review Applications</h3>
+                <p className="text-sm text-gray-500">Process B40 requests</p>
+              </CardContent>
+            </Card>
+          </Link>
+          
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+            <CardContent className="p-6 text-center flex flex-col justify-center h-full">
+              <AlertTriangle className="h-8 w-8 text-orange-500 mx-auto mb-2" />
+              <h3 className="font-medium text-base">Stock Alerts</h3>
+              <p className="text-sm text-gray-500">Monitor low stock items</p>
+            </CardContent>
+          </Card>
+          
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+            <CardContent className="p-6 text-center flex flex-col justify-center h-full">
+              <TrendingUp className="h-8 w-8 text-purple-500 mx-auto mb-2" />
+              <h3 className="font-medium text-base">Analytics</h3>
+              <p className="text-sm text-gray-500">View reports & trends</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Stats Overview */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Link to="/inventory-management" className="block">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Total Stock Items</CardTitle>
+                <Package className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">173</div>
+                <p className="text-xs text-muted-foreground">5 items low stock</p>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link to="/beneficiary-portal" className="block">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Active Beneficiaries</CardTitle>
+                <Users className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">482</div>
+                <p className="text-xs text-muted-foreground">+12 this week</p>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Pending Applications</CardTitle>
+              <AlertTriangle className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">23</div>
+              <p className="text-xs text-muted-foreground">Requires review</p>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer h-32">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Distribution Rate</CardTitle>
+              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">94%</div>
+              <p className="text-xs text-muted-foreground">Above target</p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
