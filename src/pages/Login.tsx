@@ -36,21 +36,21 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-lightest to-green-light flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-green-darkest to-green-olive rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">FA</span>
             </div>
-            <span className="text-xl font-bold text-green-darkest">FoodAim</span>
+            <span className="text-xl font-bold text-gray-900">FoodAim</span>
           </Link>
         </div>
 
-        <Card className="border-green-medium">
+        <Card>
           <CardHeader>
-            <CardTitle className="text-green-darkest">Login to FoodAim</CardTitle>
-            <CardDescription className="text-green-dark">Access your account to manage food bank operations</CardDescription>
+            <CardTitle>Login to FoodAim</CardTitle>
+            <CardDescription>Access your account to manage food bank operations</CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="admin" className="w-full">
@@ -69,7 +69,6 @@ const Login = () => {
                       placeholder="admin@foodbank.org"
                       value={adminCredentials.email}
                       onChange={(e) => setAdminCredentials({ ...adminCredentials, email: e.target.value })}
-                      className="border-green-medium focus:ring-green-darkest"
                     />
                   </div>
                   <div className="space-y-2">
@@ -79,10 +78,9 @@ const Login = () => {
                       type="password"
                       value={adminCredentials.password}
                       onChange={(e) => setAdminCredentials({ ...adminCredentials, password: e.target.value })}
-                      className="border-green-medium focus:ring-green-darkest"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-green-darkest hover:bg-green-dark">Login as Administrator</Button>
+                  <Button type="submit" className="w-full">Login as Administrator</Button>
                 </form>
               </TabsContent>
               
@@ -96,7 +94,6 @@ const Login = () => {
                       placeholder="user@example.com"
                       value={beneficiaryCredentials.email}
                       onChange={(e) => setBeneficiaryCredentials({ ...beneficiaryCredentials, email: e.target.value })}
-                      className="border-green-medium focus:ring-green-darkest"
                     />
                   </div>
                   <div className="space-y-2">
@@ -106,18 +103,17 @@ const Login = () => {
                       type="password"
                       value={beneficiaryCredentials.password}
                       onChange={(e) => setBeneficiaryCredentials({ ...beneficiaryCredentials, password: e.target.value })}
-                      className="border-green-medium focus:ring-green-darkest"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-green-darkest hover:bg-green-dark">Login as Beneficiary</Button>
+                  <Button type="submit" className="w-full">Login as Beneficiary</Button>
                 </form>
               </TabsContent>
             </Tabs>
 
             <div className="mt-6 text-center">
-              <p className="text-sm text-green-dark">
+              <p className="text-sm text-gray-600">
                 Don't have an account?{" "}
-                <Link to="/register" className="text-green-darkest hover:underline font-medium">
+                <Link to="/register" className="text-blue-600 hover:underline">
                   Register here
                 </Link>
               </p>

@@ -37,21 +37,21 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-lightest to-green-light py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 py-8 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-green-darkest to-green-olive rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">FA</span>
             </div>
-            <span className="text-xl font-bold text-green-darkest">FoodAim</span>
+            <span className="text-xl font-bold text-gray-900">FoodAim</span>
           </Link>
         </div>
 
-        <Card className="border-green-medium">
+        <Card>
           <CardHeader>
-            <CardTitle className="text-green-darkest">Register for Food Assistance</CardTitle>
-            <CardDescription className="text-green-dark">
+            <CardTitle>Register for Food Assistance</CardTitle>
+            <CardDescription>
               Create your beneficiary account to access food bank services
             </CardDescription>
           </CardHeader>
@@ -66,7 +66,6 @@ const Register = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="border-green-medium focus:ring-green-darkest"
                   />
                 </div>
                 <div className="space-y-2">
@@ -78,7 +77,6 @@ const Register = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="border-green-medium focus:ring-green-darkest"
                   />
                 </div>
               </div>
@@ -93,7 +91,6 @@ const Register = () => {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="border-green-medium focus:ring-green-darkest"
                   />
                 </div>
                 <div className="space-y-2">
@@ -104,7 +101,6 @@ const Register = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="border-green-medium focus:ring-green-darkest"
                   />
                 </div>
               </div>
@@ -118,7 +114,6 @@ const Register = () => {
                     value={formData.icNumber}
                     onChange={handleChange}
                     required
-                    className="border-green-medium focus:ring-green-darkest"
                   />
                 </div>
                 <div className="space-y-2">
@@ -130,7 +125,6 @@ const Register = () => {
                     value={formData.householdSize}
                     onChange={handleChange}
                     required
-                    className="border-green-medium focus:ring-green-darkest"
                   />
                 </div>
               </div>
@@ -145,7 +139,6 @@ const Register = () => {
                   onChange={handleChange}
                   placeholder="Enter monthly income to determine B40 eligibility"
                   required
-                  className="border-green-medium focus:ring-green-darkest"
                 />
               </div>
 
@@ -158,18 +151,17 @@ const Register = () => {
                   onChange={handleChange}
                   rows={3}
                   required
-                  className="border-green-medium focus:ring-green-darkest"
                 />
               </div>
 
-              <Button type="submit" className="w-full bg-green-darkest hover:bg-green-dark">
+              <Button type="submit" className="w-full">
                 Register Account
               </Button>
 
               <div className="text-center">
-                <p className="text-sm text-green-dark">
+                <p className="text-sm text-gray-600">
                   Already have an account?{" "}
-                  <Link to="/login" className="text-green-darkest hover:underline font-medium">
+                  <Link to="/login" className="text-blue-600 hover:underline">
                     Login here
                   </Link>
                 </p>
