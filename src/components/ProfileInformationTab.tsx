@@ -10,11 +10,33 @@ import { Upload, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
 
+interface BaseProfile {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  role: string;
+}
+
+interface AdminProfile extends BaseProfile {
+  department: string;
+  employeeId: string;
+  accessLevel: string;
+}
+
+interface BeneficiaryProfile extends BaseProfile {
+  householdSize: string;
+  monthlyIncome: string;
+  beneficiaryId: string;
+}
+
+type ProfileData = AdminProfile | BeneficiaryProfile;
+
 const ProfileInformationTab = () => {
   const location = useLocation();
   const isAdmin = location.pathname.includes('admin') || localStorage.getItem('userRole') === 'admin';
   
-  const [profileData, setProfileData] = useState(() => {
+  const [profileData, setProfileData] = useState<ProfileData>(() => {
     if (isAdmin) {
       return {
         name: "John Administrator",
@@ -25,7 +47,7 @@ const ProfileInformationTab = () => {
         department: "Operations Management",
         employeeId: "EMP001",
         accessLevel: "Full Access"
-      };
+      } as AdminProfile;
     } else {
       return {
         name: "Ahmad Abdullah",
@@ -36,7 +58,7 @@ const ProfileInformationTab = () => {
         householdSize: "4 members",
         monthlyIncome: "RM 1,200",
         beneficiaryId: "BEN001"
-      };
+      } as BeneficiaryProfile;
     }
   });
 
@@ -57,6 +79,22 @@ const ProfileInformationTab = () => {
         title: "Profile Picture Updated", 
         description: "Your profile picture has been uploaded successfully." 
       });
+    }
+  };
+
+  const updateProfileField = (field: keyof BaseProfile, value: string) => {
+    setProfileData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const updateAdminField = (field: keyof Omit<AdminProfile, keyof BaseProfile>, value: string) => {
+    if (isAdmin) {
+      setProfileData(prev => ({ ...prev, [field]: value }));
+    }
+  };
+
+  const updateBeneficiaryField = (field: keyof Omit<BeneficiaryProfile, keyof BaseProfile>, value: string) => {
+    if (!isAdmin) {
+      setProfileData(prev => ({ ...prev, [field]: value }));
     }
   };
 
@@ -105,7 +143,7 @@ const ProfileInformationTab = () => {
               <Input
                 id="name"
                 value={profileData.name}
-                onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
+                onChange={(e) => updateProfileField('name', e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -114,7 +152,7 @@ const ProfileInformationTab = () => {
                 id="email"
                 type="email"
                 value={profileData.email}
-                onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}
+                onChange={(e) => updateProfileField('email', e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -122,7 +160,7 @@ const ProfileInformationTab = () => {
               <Input
                 id="phone"
                 value={profileData.phone}
-                onChange={(e) => setProfileData({ ...profileData, phone: e.target.value })}
+                onChange={(e) => updateProfileField('phone', e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -142,15 +180,15 @@ const ProfileInformationTab = () => {
                   <Label htmlFor="department">Department</Label>
                   <Input
                     id="department"
-                    value={profileData.department}
-                    onChange={(e) => setProfileData({ ...profileData, department: e.target.value })}
+                    value={(profileData as AdminProfile).department}
+                    onChange={(e) => updateAdminField('department', e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="employeeId">Employee ID</Label>
                   <Input
                     id="employeeId"
-                    value={profileData.employeeId}
+                    value={(profileData as AdminProfile).employeeId}
                     disabled
                     className="bg-gray-100"
                   />
@@ -159,7 +197,7 @@ const ProfileInformationTab = () => {
                   <Label htmlFor="accessLevel">Access Level</Label>
                   <Input
                     id="accessLevel"
-                    value={profileData.accessLevel}
+                    value={(profileData as AdminProfile).accessLevel}
                     disabled
                     className="bg-gray-100"
                   />
@@ -174,23 +212,23 @@ const ProfileInformationTab = () => {
                   <Label htmlFor="householdSize">Household Size</Label>
                   <Input
                     id="householdSize"
-                    value={profileData.householdSize}
-                    onChange={(e) => setProfileData({ ...profileData, householdSize: e.target.value })}
+                    value={(profileData as BeneficiaryProfile).householdSize}
+                    onChange={(e) => updateBeneficiaryField('householdSize', e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="monthlyIncome">Monthly Income</Label>
                   <Input
                     id="monthlyIncome"
-                    value={profileData.monthlyIncome}
-                    onChange={(e) => setProfileData({ ...profileData, monthlyIncome: e.target.value })}
+                    value={(profileData as BeneficiaryProfile).monthlyIncome}
+                    onChange={(e) => updateBeneficiaryField('monthlyIncome', e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="beneficiaryId">Beneficiary ID</Label>
                   <Input
                     id="beneficiaryId"
-                    value={profileData.beneficiaryId}
+                    value={(profileData as BeneficiaryProfile).beneficiaryId}
                     disabled
                     className="bg-gray-100"
                   />
@@ -204,7 +242,7 @@ const ProfileInformationTab = () => {
             <Textarea
               id="address"
               value={profileData.address}
-              onChange={(e) => setProfileData({ ...profileData, address: e.target.value })}
+              onChange={(e) => updateProfileField('address', e.target.value)}
               rows={3}
             />
           </div>
