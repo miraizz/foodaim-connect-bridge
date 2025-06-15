@@ -12,9 +12,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">FA</span>
-              </div>
+              <img 
+                src="/lovable-uploads/34d10014-7924-4265-8769-72a1f10d1e8a.png" 
+                alt="FoodAim Logo" 
+                className="w-8 h-8"
+              />
               <span className="text-xl font-bold text-gray-900">FoodAim</span>
             </div>
             <div className="flex items-center space-x-4">
@@ -167,9 +169,11 @@ const Index = () => {
       <footer className="text-white py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#718355' }}>
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">FA</span>
-            </div>
+            <img 
+              src="/lovable-uploads/34d10014-7924-4265-8769-72a1f10d1e8a.png" 
+              alt="FoodAim Logo" 
+              className="w-8 h-8"
+            />
             <span className="text-xl font-bold">FoodAim</span>
           </div>
           <p className="text-gray-200">
