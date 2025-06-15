@@ -2,6 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 interface Application {
   id: string;
@@ -16,6 +17,8 @@ interface ApplicationsTabProps {
 }
 
 const ApplicationsTab = ({ recentApplications }: ApplicationsTabProps) => {
+  const navigate = useNavigate();
+
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "pending": return <Badge variant="outline" className="text-yellow-600">Pending</Badge>;
@@ -23,6 +26,10 @@ const ApplicationsTab = ({ recentApplications }: ApplicationsTabProps) => {
       case "rejected": return <Badge variant="destructive">Rejected</Badge>;
       default: return <Badge variant="outline">Unknown</Badge>;
     }
+  };
+
+  const handleReviewClick = (applicationId: string) => {
+    navigate(`/application-review/${applicationId}`);
   };
 
   return (
@@ -43,7 +50,13 @@ const ApplicationsTab = ({ recentApplications }: ApplicationsTabProps) => {
               <div className="flex items-center space-x-2">
                 {getStatusBadge(app.status)}
                 {app.status === "pending" && (
-                  <Button size="sm" variant="outline">Review</Button>
+                  <Button 
+                    size="sm" 
+                    variant="outline"
+                    onClick={() => handleReviewClick(app.id)}
+                  >
+                    Review
+                  </Button>
                 )}
               </div>
             </div>
