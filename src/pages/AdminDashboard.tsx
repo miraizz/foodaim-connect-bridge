@@ -39,7 +39,7 @@ const AdminDashboard = () => {
 
         <Tabs defaultValue="inventory" className="space-y-6 mb-8">
           <TabsList>
-            <TabsTrigger value="inventory">Inventory & IoT</TabsTrigger>
+            <TabsTrigger value="inventory">Stock Levels Analysis</TabsTrigger>
             <TabsTrigger value="applications">Beneficiary Management</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
           </TabsList>
