@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Bell, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ const AdminHeader = () => {
               <img 
                 src="/lovable-uploads/4fe827b8-33ce-4e98-9695-5d8eb08a5ca1.png" 
                 alt="FoodAim Logo" 
-                className="w-8 h-8"
+                className="w-12 h-12"
               />
               <span className="text-xl font-bold text-gray-900">FoodAim Admin</span>
             </Link>
