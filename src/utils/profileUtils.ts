@@ -2,8 +2,10 @@
 import { AdminProfile, BeneficiaryProfile, ProfileData } from "@/types/profile";
 
 export const getInitialProfileData = (isAdmin: boolean): ProfileData => {
+  console.log("getInitialProfileData called with isAdmin:", isAdmin);
+  
   if (isAdmin) {
-    return {
+    const adminProfile: AdminProfile = {
       name: "John Administrator",
       email: "admin@foodbank.org",
       phone: "+60123456789",
@@ -12,9 +14,12 @@ export const getInitialProfileData = (isAdmin: boolean): ProfileData => {
       department: "Operations Management",
       employeeId: "EMP001",
       accessLevel: "Full Access"
-    } as AdminProfile;
+    };
+    
+    console.log("Returning admin profile:", adminProfile);
+    return adminProfile;
   } else {
-    return {
+    const beneficiaryProfile: BeneficiaryProfile = {
       name: "Ahmad Abdullah",
       email: "ahmad.abdullah@gmail.com",
       phone: "+60187654321",
@@ -23,6 +28,9 @@ export const getInitialProfileData = (isAdmin: boolean): ProfileData => {
       householdSize: "4 members",
       monthlyIncome: "RM 1,200",
       beneficiaryId: "BEN001"
-    } as BeneficiaryProfile;
+    };
+    
+    console.log("Returning beneficiary profile:", beneficiaryProfile);
+    return beneficiaryProfile;
   }
 };

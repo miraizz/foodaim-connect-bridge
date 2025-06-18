@@ -12,7 +12,25 @@ import ProfileFormFields from "./ProfileFormFields";
 
 const ProfileInformationTab = () => {
   const location = useLocation();
-  const isAdmin = location.pathname.includes('admin') || localStorage.getItem('userRole') === 'admin';
+  
+  // Enhanced role detection logic
+  const getUserRole = () => {
+    const storedRole = localStorage.getItem('userRole');
+    const pathBasedRole = location.pathname.includes('admin') ? 'admin' : 'beneficiary';
+    
+    console.log("Current path:", location.pathname);
+    console.log("Stored role:", storedRole);
+    console.log("Path-based role:", pathBasedRole);
+    
+    // Prioritize stored role if it exists, otherwise use path-based detection
+    return storedRole || pathBasedRole;
+  };
+  
+  const userRole = getUserRole();
+  const isAdmin = userRole === 'admin';
+  
+  console.log("Final determined role:", userRole);
+  console.log("Is admin:", isAdmin);
   
   const [profileData, setProfileData] = useState<ProfileData>(() => getInitialProfileData(isAdmin));
 

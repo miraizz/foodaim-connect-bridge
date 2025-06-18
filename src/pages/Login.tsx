@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,6 +17,15 @@ const Login = () => {
     e.preventDefault();
     // Simple demo authentication
     if (adminCredentials.email && adminCredentials.password) {
+      // Store user role and data in localStorage
+      localStorage.setItem('userRole', 'admin');
+      localStorage.setItem('user', JSON.stringify({
+        email: adminCredentials.email,
+        role: 'admin'
+      }));
+      
+      console.log("Admin login successful, role stored:", localStorage.getItem('userRole'));
+      
       toast({ title: "Login Successful", description: "Welcome to the admin dashboard!" });
       navigate("/admin-dashboard");
     } else {
@@ -28,6 +36,15 @@ const Login = () => {
   const handleBeneficiaryLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (beneficiaryCredentials.email && beneficiaryCredentials.password) {
+      // Store user role and data in localStorage
+      localStorage.setItem('userRole', 'beneficiary');
+      localStorage.setItem('user', JSON.stringify({
+        email: beneficiaryCredentials.email,
+        role: 'beneficiary'
+      }));
+      
+      console.log("Beneficiary login successful, role stored:", localStorage.getItem('userRole'));
+      
       toast({ title: "Login Successful", description: "Welcome to the beneficiary portal!" });
       navigate("/beneficiary-portal");
     } else {
