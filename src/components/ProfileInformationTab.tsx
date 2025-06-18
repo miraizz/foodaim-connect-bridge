@@ -13,7 +13,7 @@ import ProfileFormFields from "./ProfileFormFields";
 const ProfileInformationTab = () => {
   const location = useLocation();
   
-  // Enhanced role detection logic
+  // Enhanced role detection logic - prioritize stored role over path
   const getUserRole = () => {
     const storedRole = localStorage.getItem('userRole');
     const storedUser = localStorage.getItem('user');
@@ -24,13 +24,20 @@ const ProfileInformationTab = () => {
     console.log("Stored user:", storedUser);
     console.log("Path-based role:", pathBasedRole);
     
+    // If we have a stored role, use it (this is the actual logged-in user's role)
+    if (storedRole) {
+      console.log("Using stored role:", storedRole);
+      return storedRole;
+    }
+    
     // If no stored role but we have a stored user, try to extract role from user data
-    if (!storedRole && storedUser) {
+    if (storedUser) {
       try {
         const userData = JSON.parse(storedUser);
         console.log("Parsed user data:", userData);
         if (userData.role) {
           localStorage.setItem('userRole', userData.role);
+          console.log("Extracted role from user data:", userData.role);
           return userData.role;
         }
       } catch (error) {
@@ -38,8 +45,9 @@ const ProfileInformationTab = () => {
       }
     }
     
-    // Prioritize stored role if it exists, otherwise use path-based detection
-    return storedRole || pathBasedRole;
+    // Fallback to path-based detection only if no stored data exists
+    console.log("Falling back to path-based role:", pathBasedRole);
+    return pathBasedRole;
   };
   
   const [userRole, setUserRole] = useState(() => getUserRole());
