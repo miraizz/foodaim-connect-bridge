@@ -1,10 +1,12 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Shield, BarChart3, Users, Bell, Smartphone, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const Index = () => {
+  useDocumentTitle("FoodAim - Smart Food Bank Management System");
+
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom right, #E9F5DB, #CFE1B9)' }}>
       {/* Navigation */}

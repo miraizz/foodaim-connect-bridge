@@ -6,8 +6,11 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const Login = () => {
+  useDocumentTitle("Login - FoodAim");
+  
   const [adminCredentials, setAdminCredentials] = useState({ email: "", password: "" });
   const [beneficiaryCredentials, setBeneficiaryCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
